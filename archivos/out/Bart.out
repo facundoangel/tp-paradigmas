@@ -1,13 +1,8 @@
-Nombre=Bart, dinero=$2000.0, tiempo=9.0 hs, pref=Aventura]
-
+Bart
 Promocion
-Atracciones incluidas: Planta de Energia Nuclear, Planta de Energia Nuclear
-Duracion=4.0hs
-Precio Orginal= $171.6
-Precio con un 20.0% de descuento= $137.28
+Atracciones incluidas: Casa de los Simpsons, Casa del Arbol
+Duracion=7.0hs
+Precio Orginal= $162.3
+Llevatelo a = $130.0
 
-Atraccion: Taberna de Moe
-Precio= $45.8
-Duracion=2.0hs
-
-Total a pagar: $183,08 Tiempo requerido: 6,00hs
+Total a pagar: $130,00 Tiempo requerido: 7,00hs

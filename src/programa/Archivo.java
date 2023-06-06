@@ -170,7 +170,6 @@ public class Archivo {
 		} finally {
 			if (scanner != null)
 				scanner.close();
-			System.out.println(promociones);
 		}
 
 		return promociones;

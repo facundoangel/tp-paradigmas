@@ -51,18 +51,27 @@ public class Main {
 		System.out.println("==============Compra para " + cliente + "===================");
 
 //		Recorremos todo el arraylist
-		for (Oferta of : ofertas) {
+		int cont = 0;
+		while(cliente.getTiempo() > 0 && cliente.getDinero() > 0) {
+			cont = (cont >= ofertas.size()) ? 0 : cont; 
+			Oferta of = ofertas.get(cont);
+			
 //			Si la oferta no está disponible(no tiene cupos) o el cliente no puede comprarla(no tiene el suficiente tiempo o dinero)
 //			se salta a la siguiente oferta
 			if (!of.estaDisponible() || !cliente.puedeComprar(of))
+			{
+				cont ++;
 				continue;
+			}
 //			Si el usuario puede comprar la oferta, se lo sugerimos
 			System.out.println(of);
 //			Si la respuesta es positiva, se modificara la oferta y el usuario, si es negativa, se pasa a la siguiente oferta
 			if (quiereComprar(scan)) {
 				cliente.comprar(of);
 				of.vender();
+				System.out.println(cliente.getDinero());
 			}
+			cont++;
 		}
 
 //		Si el cupo de la atraccion es diferente de 0, se pone la disponibilidad en true

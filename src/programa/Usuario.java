@@ -23,6 +23,14 @@ public class Usuario {
 		}
 
 	}
+	
+	public double getDinero() {
+		return dinero;
+	}
+	
+	public double getTiempo() {
+		return tiempo;
+	}
 
 	public Oferta.tipoAtraccion getPref() {
 		return pref;

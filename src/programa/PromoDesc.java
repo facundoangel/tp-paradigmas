@@ -12,7 +12,7 @@ public class PromoDesc extends Promocion {
 
 	public double getPrecio() {
 		double precioOrig = this.precio;
-		return precioOrig - precioOrig * descuento / 100;
+		return Math.round(precioOrig - precioOrig * descuento / 100);
 	}
 
 	@Override

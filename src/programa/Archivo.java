@@ -123,7 +123,7 @@ public class Archivo {
 				String atracciones = scanner.nextLine();
 				String[] partes = atracciones.split(",");
 				for (int j = 0; j < partes.length; j++) {
-					Atraccion nombre = new Atraccion(partes[i]);
+					Atraccion nombre = new Atraccion(partes[j]);
 					atrPromo.add(atr.get(atr.indexOf(nombre)));
 				}
 				double descuento = scanner.nextDouble();
@@ -138,7 +138,7 @@ public class Archivo {
 				String atracciones = scanner.nextLine();
 				String[] partes = atracciones.split(",");
 				for (int j = 0; j < partes.length; j++) {
-					Atraccion nombre = new Atraccion(partes[i]);
+					Atraccion nombre = new Atraccion(partes[j]);
 					atrPromo.add(atr.get(atr.indexOf(nombre)));
 				}
 				double precio = scanner.nextDouble();
@@ -153,7 +153,7 @@ public class Archivo {
 				String atracciones = scanner.nextLine();
 				String[] partes = atracciones.split(",");
 				for (int j = 0; j < partes.length; j++) {
-					Atraccion nombre = new Atraccion(partes[i]);
+					Atraccion nombre = new Atraccion(partes[j]);
 					atrPromo.add(atr.get(atr.indexOf(nombre)));
 				}
 

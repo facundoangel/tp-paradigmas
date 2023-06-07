@@ -69,7 +69,7 @@ public class Main {
 			if (quiereComprar(scan)) {
 				cliente.comprar(of);
 				of.vender();
-				System.out.println(cliente.getDinero());
+				
 			}
 			cont++;
 		}

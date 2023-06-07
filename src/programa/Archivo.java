@@ -15,17 +15,20 @@ public class Archivo {
 	private final String archUsuarios;
 	private final String archAtracciones;
 	private final String archPromociones;
+	private final String directorio;
 
 	public Archivo() {
 		this.archUsuarios = "usuarios";
 		this.archAtracciones = "atracciones";
 		this.archPromociones = "promociones";
+		this.directorio="archivos/in/";
 	}
 
-	public Archivo(String archUsuarios, String archAtracciones, String archPromociones) {
-		this.archUsuarios = archUsuarios;
-		this.archAtracciones = archAtracciones;
-		this.archPromociones = archPromociones;
+	public Archivo(String directorio) {
+		this.archUsuarios = "usuarios";
+		this.archAtracciones = "atracciones";
+		this.archPromociones = "promociones";
+		this.directorio = directorio;
 	}
 
 	public Queue<Usuario> leerUsuarios() {
@@ -36,8 +39,8 @@ public class Archivo {
 		Scanner scanner = null;
 
 		try {
-
-			file = new File("archivos/in/" + this.archUsuarios + ".in");
+			
+			file = new File(this.directorio + this.archUsuarios + ".in");
 			scanner = new Scanner(file);
 
 			scanner.useLocale(Locale.ENGLISH);
@@ -72,7 +75,7 @@ public class Archivo {
 		ArrayList<Atraccion> atracciones = new ArrayList<Atraccion>();
 
 		try {
-			file = new File("archivos/in/" + this.archAtracciones + ".in");
+			file = new File(this.directorio + this.archAtracciones + ".in");
 			scanner = new Scanner(file);
 
 			scanner.useLocale(Locale.ENGLISH);
@@ -112,7 +115,7 @@ public class Archivo {
 		Scanner scanner = null;
 
 		try {
-			file = new File("archivos/in/" + this.archPromociones + ".in");
+			file = new File(this.directorio + this.archPromociones + ".in");
 			scanner = new Scanner(file);
 
 			scanner.useLocale(Locale.ENGLISH);

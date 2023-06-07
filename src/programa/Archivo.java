@@ -183,7 +183,7 @@ public class Archivo {
 		PrintWriter printerWriter = null;
 
 		try {
-			file = new FileWriter("archivos/out/" + cliente + ".out");
+			file = new FileWriter(this.directorio + cliente + ".out");
 			printerWriter = new PrintWriter(file);
 			printerWriter.println(cliente);
 			for (Oferta of : cliente.getCompras()) {

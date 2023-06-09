@@ -20,7 +20,7 @@ public class VentaTest {
 	public void limiteVentas() {
 		/*
 		 * Se testea que la atraccion reduzca el cupo cuando se vende
-		 * y además que deje de estar disponible
+		 * y además que deje de estar disponible si se queda sin cupo
 		 * */
 		boolean esperado1 = false;
 		boolean esperado2 = true;

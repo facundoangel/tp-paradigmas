@@ -3,7 +3,6 @@ package programa;
 import java.util.ArrayList;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class OrdenamientoTest {
@@ -100,9 +99,7 @@ public class OrdenamientoTest {
 		arrayEsperado.add(this.casaArbol);
 		arrayEsperado.add(this.museo);
 
-		boolean resultado = this.prefAventuraReal.equals(arrayEsperado);
-
-		Assert.assertTrue(resultado);
+		Assert.assertEquals(arrayEsperado, this.prefAventuraReal);
 
 	}
 
@@ -125,9 +122,7 @@ public class OrdenamientoTest {
 		arrayEsperado.add(this.plantaEnergia);
 		arrayEsperado.add(this.taberna);
 
-		boolean resultado = this.prefPaisajeReal.equals(arrayEsperado);
-
-		Assert.assertTrue(resultado);
+		Assert.assertEquals(arrayEsperado, this.prefPaisajeReal);
 	}
 
 	@Test
@@ -150,9 +145,7 @@ public class OrdenamientoTest {
 		arrayEsperado.add(this.museo);
 
 
-		boolean resultado = this.prefDegustacionReal.equals(arrayEsperado);
-
-		Assert.assertTrue(resultado);
+		Assert.assertEquals(arrayEsperado, this.prefDegustacionReal);
 	}
 
 }

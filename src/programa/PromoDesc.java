@@ -3,7 +3,7 @@ package programa;
 import java.util.ArrayList;
 
 public class PromoDesc extends Promocion {
-	double descuento;
+	private double descuento;
 
 	public PromoDesc(ArrayList<Atraccion> atracciones, double descuento) {
 		super(atracciones);
@@ -12,7 +12,7 @@ public class PromoDesc extends Promocion {
 
 	public double getPrecio() {
 		double precioOrig = this.precio;
-		return Math.round(precioOrig - precioOrig * descuento / 100);
+		return precioOrig - precioOrig * descuento / 100;
 	}
 
 	@Override

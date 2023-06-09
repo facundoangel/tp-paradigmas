@@ -29,15 +29,26 @@ public abstract class Oferta {
 		return this.tipo;
 	}
 	
-	public static void resetDisponibilidad(ArrayList<Oferta> compras) {
-		for(Oferta of: compras) {
+	public static void resetDisponibilidad(ArrayList<Oferta> ofertas) {
+		for(Oferta of: ofertas) {
 			of.resetearDisponibilidad();
 		}
 	}
 	
 	public abstract void resetearDisponibilidad();
 	public abstract boolean esPromo();
-
+	
+	public void setDisponibilidad(boolean disp) {
+		this.disponible = disp;
+	}
+	
+	public static boolean hayOfertasDisp(ArrayList<Oferta> ofertas) {
+		for(Oferta of: ofertas) {
+			if(of.disponible)
+				return true;
+		}
+		return false;
+	}
 	
 //	Ordena las ofertas por preferencias
 	static public void crearArraysPreferencias(ArrayList<Oferta> general, ArrayList<Oferta> prefAventura,

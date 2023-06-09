@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 public class ComparatorXPref implements Comparator<Oferta> {
 
-	protected Oferta.tipoAtraccion tipo;
+	private Oferta.tipoAtraccion tipo;
 
 	public ComparatorXPref(Oferta.tipoAtraccion tipo) {
 		this.tipo = tipo;

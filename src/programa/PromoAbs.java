@@ -3,7 +3,7 @@ package programa;
 import java.util.ArrayList;
 
 public class PromoAbs extends Promocion {
-	double precioAbs;
+	private double precioAbs;
 
 	public PromoAbs(ArrayList<Atraccion> atracciones, double precioAbs) {
 		super(atracciones);

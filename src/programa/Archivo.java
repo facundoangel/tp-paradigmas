@@ -28,7 +28,7 @@ public class Archivo {
 		this.archUsuarios = "usuarios";
 		this.archAtracciones = "atracciones";
 		this.archPromociones = "promociones";
-		this.directorio = directorio;
+		this.directorio=directorio;
 	}
 
 	public Queue<Usuario> leerUsuarios() {
@@ -39,7 +39,7 @@ public class Archivo {
 		Scanner scanner = null;
 
 		try {
-			
+
 			file = new File(this.directorio + this.archUsuarios + ".in");
 			scanner = new Scanner(file);
 
@@ -183,7 +183,7 @@ public class Archivo {
 		PrintWriter printerWriter = null;
 
 		try {
-			file = new FileWriter(this.directorio + cliente + ".out");
+			file = new FileWriter("archivos/out/" + cliente + ".out");
 			printerWriter = new PrintWriter(file);
 			printerWriter.println(cliente);
 			for (Oferta of : cliente.getCompras()) {

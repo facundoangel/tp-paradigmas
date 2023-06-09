@@ -48,10 +48,6 @@ public class Atraccion extends Oferta {
 		return this.disponible;
 	}
 
-	public void setDisponibilidad(boolean disp) {
-		this.disponible = disp;
-	}
-
 //	Si la disponibilidad es falsa, por haber sido comprada en una promo,
 //	y la atracción tiene cupos, se pone la disponiblidad en verdadera
 	@Override

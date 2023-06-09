@@ -3,7 +3,7 @@ package programa;
 import java.util.ArrayList;
 
 public class PromoAxB extends Promocion {
-	int cantPromGratis; //son las n ultimas altracciones
+	private int cantPromGratis; //son las n ultimas altracciones
 
 	public PromoAxB(ArrayList<Atraccion> atracciones, int cantPromGratis) {
 		super(atracciones);
@@ -33,7 +33,7 @@ public class PromoAxB extends Promocion {
 		}
 		texto += this.atracciones.get(this.atracciones.size() - 1).getNombre();
 
-		texto += "\nDuracion=" + tiempo + "hs\nPrecio Orginal= $" + this.precio + "\n";
+		texto += "\nDuracion=" + tiempo + "hs\nPrecio Orginal= $" + this.precio + "\n" + "Precio Promo: $" + this.getPrecio() + "\n";
 		return texto;
 	}
 }

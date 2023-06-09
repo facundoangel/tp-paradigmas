@@ -25,7 +25,8 @@ public class Main {
 //		Creamos 3 arraylist ordenadas por las distintas preferencias
 		Oferta.crearArraysPreferencias(ofertas, prefAventura, prefDegustacion, prefPaisaje);
 
-		while (usuarios.peek() != null) {
+		boolean hayAtrDisp = true;
+		while (usuarios.peek() != null && (hayAtrDisp = Oferta.hayOfertasDisp(ofertas))) {
 //			sacamos los usuarios por orden del archivo
 			Usuario cliente = usuarios.poll();
 
@@ -44,36 +45,28 @@ public class Main {
 //			Generamos el archivo del usuario
 			arc.generarArchUsuario(cliente);
 		}
+		if (!hayAtrDisp)
+			System.out.println("No quedan atracciones para ofrecer");
+		System.out.print("==============FIN==============");
 	}
 
 //	Recibe el cliente, el arraylist ordenado por la preferencia del usuario y el scanner que recibe la respuesta
 	static public void ofrecerAtrYProm(Usuario cliente, ArrayList<Oferta> ofertas, Scanner scan) {
 		System.out.println("==============Compra para " + cliente + "===================");
 
-//		Recorremos todo el arraylist
-		int cont = 0;
-		while(cliente.getTiempo() > 0 && cliente.getDinero() > 0) {
-			cont = (cont >= ofertas.size()) ? 0 : cont; 
-			Oferta of = ofertas.get(cont);
-			
-//			Si la oferta no está disponible(no tiene cupos) o el cliente no puede comprarla(no tiene el suficiente tiempo o dinero)
-//			se salta a la siguiente oferta
-			if (!of.estaDisponible() || !cliente.puedeComprar(of))
-			{
-				cont ++;
-				continue;
-			}
-//			Si el usuario puede comprar la oferta, se lo sugerimos
+		int pos = cliente.puedeComprarAlgo(ofertas, 0);
+		if(pos == -1)
+			System.out.println("Lo sentimos, no puede comprar nada");
+		while (pos < ofertas.size() && (pos != -1)) {
+			Oferta of = ofertas.get(pos);
 			System.out.println(of);
-//			Si la respuesta es positiva, se modificara la oferta y el usuario, si es negativa, se pasa a la siguiente oferta
+//		Si la respuesta es positiva, se modificara la oferta y el usuario, si es negativa, se pasa a la siguiente oferta
 			if (quiereComprar(scan)) {
 				cliente.comprar(of);
 				of.vender();
-				
 			}
-			cont++;
+			pos = cliente.puedeComprarAlgo(ofertas, pos);
 		}
-
 //		Si el cupo de la atraccion es diferente de 0, se pone la disponibilidad en true
 		Oferta.resetDisponibilidad(cliente.getCompras());
 

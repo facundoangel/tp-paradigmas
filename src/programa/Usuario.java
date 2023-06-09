@@ -23,7 +23,6 @@ public class Usuario {
 		}
 
 	}
-	
 	public double getDinero() {
 		return dinero;
 	}
@@ -46,7 +45,6 @@ public class Usuario {
 		for(Oferta of: compras) {
 			total += of.getPrecio();		
 		}
-		
 		return total;
 	}
 	
@@ -58,6 +56,16 @@ public class Usuario {
 		}
 		
 		return total;
+	}
+	
+	public int puedeComprarAlgo(ArrayList<Oferta> ofertas, int indice) {
+		while(indice < ofertas.size()) {
+			if(ofertas.get(indice).estaDisponible() && this.puedeComprar(ofertas.get(indice))) {
+				return indice;
+			}
+			indice++;
+		}
+		return -1;
 	}
 
 	public boolean puedeComprar(Oferta of) {

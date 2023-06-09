@@ -65,7 +65,7 @@ public class Main {
 				cliente.comprar(of);
 				of.vender();
 			}
-			pos = cliente.puedeComprarAlgo(ofertas, pos);
+			pos = cliente.puedeComprarAlgo(ofertas, pos+1);
 		}
 //		Si el cupo de la atraccion es diferente de 0, se pone la disponibilidad en true
 		Oferta.resetDisponibilidad(cliente.getCompras());

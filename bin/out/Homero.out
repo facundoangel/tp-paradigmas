@@ -1,18 +1,13 @@
 Homero
-Atraccion: Krusty Burger
-Precio= $100.0
-Duracion=3.0hs
-
-Atraccion: Museo
-Precio= $45.8
-Duracion=2.0hs
+Promocion
+Comprando: Kwik-E-Mart
+Te llevas gratis: Taberna de Moe
+Duracion=4.0hs
+Precio Orginal= $185.8
+Precio Promo: $140.0
 
 Atraccion: Centro Comercial
 Precio= $40.0
 Duracion=1.0hs
 
-Atraccion: Casa de los Simpsons
-Precio= $110.0
-Duracion=3.0hs
-
-Total a pagar: $295,80 Tiempo requerido: 9,00hs
+Total a pagar: $180,00 Tiempo requerido: 5,00hs

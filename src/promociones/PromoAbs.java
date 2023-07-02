@@ -1,6 +1,8 @@
-package programa;
+package promociones;
 
 import java.util.ArrayList;
+
+import oferta.Atraccion;
 
 public class PromoAbs extends Promocion {
 	private double precioAbs;

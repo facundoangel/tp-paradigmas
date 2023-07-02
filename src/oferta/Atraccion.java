@@ -1,4 +1,9 @@
-package programa;
+package oferta;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Locale;
+import java.util.Scanner;
 
 public class Atraccion extends Oferta {
 
@@ -11,11 +16,7 @@ public class Atraccion extends Oferta {
 		this.tiempo = tiempo;
 		this.cupo = cupo;
 		this.disponible = (this.cupo > 0);
-		try {
-			this.tipo = tipoAtraccion.valueOf(tipo);
-		} catch (IllegalArgumentException e) {
-			e.printStackTrace();
-		}
+		this.tipo = TipoAtraccion.valueOf(tipo);
 	}
 
 	public Atraccion(String nombre) {
@@ -26,14 +27,8 @@ public class Atraccion extends Oferta {
 		return this.nombre;
 	}
 
-	@Override
-	public double getPrecio() {
-		return this.precio;
-	}
-
-	@Override
-	public double getTiempo() {
-		return this.tiempo;
+	public int getCupo() {
+		return this.cupo;
 	}
 
 	@Override
@@ -55,7 +50,7 @@ public class Atraccion extends Oferta {
 		if (!this.disponible && this.cupo != 0)
 			this.disponible = true;
 	}
-	
+
 	@Override
 	public boolean esPromo() {
 		return false;
@@ -95,6 +90,46 @@ public class Atraccion extends Oferta {
 			return false;
 
 		return true;
+	}
+
+	static public ArrayList<Atraccion> leerAtracciones() {
+
+		File file = null;
+		Scanner scanner = null;
+		ArrayList<Atraccion> atracciones = new ArrayList<Atraccion>();
+
+		try {
+			file = new File("archivos/in/atracciones.in");
+			scanner = new Scanner(file);
+
+			scanner.useLocale(Locale.ENGLISH);
+
+			int cantRegistros = scanner.nextInt();
+
+			for (int i = 0; i < cantRegistros; i++) {
+
+				String nombre = scanner.next();
+
+				while (!scanner.hasNextDouble())
+					nombre += " " + scanner.next();
+
+				double precio = scanner.nextDouble();
+				double tiempo = scanner.nextDouble();
+				int cupo = scanner.nextInt();
+				String tipoAtraccion = scanner.next();
+
+				atracciones.add(new Atraccion(nombre, precio, tiempo, cupo, tipoAtraccion));
+
+			}
+
+		} catch (Exception e) {
+			System.out.println(e);
+			System.exit(0);
+		} finally {
+			scanner.close();
+		}
+
+		return atracciones;
 	}
 
 }

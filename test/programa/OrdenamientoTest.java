@@ -1,9 +1,17 @@
 package programa;
 
 import java.util.ArrayList;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import oferta.Atraccion;
+import oferta.Oferta;
+import promociones.PromoAbs;
+import promociones.PromoAxB;
+import promociones.PromoDesc;
+import promociones.Promocion;
 
 public class OrdenamientoTest {
 	/*
@@ -35,25 +43,6 @@ public class OrdenamientoTest {
 	@Before
 	public void setUpBeforeClass() throws Exception {
 
-		// ordeno arrays en los diferentes tipos de ordenamiento que el programa tiene
-		Archivo arc = new Archivo("archivos-test/ordenamiento/");
-
-		ArrayList<Atraccion> atracciones = arc.leerAtracciones();
-		ArrayList<Promocion> promociones = arc.leerPromociones(atracciones);
-		ArrayList<Oferta> ofertas = new ArrayList<Oferta>();
-		ofertas.addAll(atracciones);
-		ofertas.addAll(promociones);
-
-		this.prefAventuraReal = new ArrayList<Oferta>();
-		this.prefDegustacionReal = new ArrayList<Oferta>();
-		this.prefPaisajeReal = new ArrayList<Oferta>();
-
-		Oferta.crearArraysPreferencias(ofertas, this.prefAventuraReal, this.prefDegustacionReal, this.prefPaisajeReal);
-
-		
-		
-		
-		
 		// creo las atracciones y promociones que se utilizaran en el tests
 		this.plantaEnergia = new Atraccion("Planta de Energia Nuclear", 85.8, 2, 6, "Aventura");
 		this.taberna = new Atraccion("Taberna de Moe", 45.8, 3, 10, "Aventura");
@@ -78,6 +67,29 @@ public class OrdenamientoTest {
 		atraccionesPromo.add(shelbyvile);
 		this.promoPaisaje = new PromoAxB(atraccionesPromo, 1);
 
+		// ordeno arrays en los diferentes tipos de ordenamiento que el programa tiene
+		ArrayList<Atraccion> atracciones = new ArrayList<Atraccion>();
+		atracciones.add(plantaEnergia);
+		atracciones.add(taberna);
+		atracciones.add(casaArbol);
+		atracciones.add(shelbyvile);
+		atracciones.add(museo);
+		atracciones.add(krustyBurguer);
+
+		ArrayList<Promocion> promociones = new ArrayList<Promocion>();
+		promociones.add(promoAventura);
+		promociones.add(promoDegust);
+		promociones.add(promoPaisaje);
+
+		ArrayList<Oferta> ofertas = new ArrayList<Oferta>();
+		ofertas.addAll(atracciones);
+		ofertas.addAll(promociones);
+
+		this.prefAventuraReal = new ArrayList<Oferta>();
+		this.prefDegustacionReal = new ArrayList<Oferta>();
+		this.prefPaisajeReal = new ArrayList<Oferta>();
+
+		Oferta.crearArraysPreferencias(ofertas, this.prefAventuraReal, this.prefDegustacionReal, this.prefPaisajeReal);
 	}
 
 	@Test
@@ -143,7 +155,6 @@ public class OrdenamientoTest {
 		arrayEsperado.add(this.casaArbol);
 		arrayEsperado.add(this.taberna);
 		arrayEsperado.add(this.museo);
-
 
 		Assert.assertEquals(arrayEsperado, this.prefDegustacionReal);
 	}

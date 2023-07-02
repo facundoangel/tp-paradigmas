@@ -1,9 +1,15 @@
 package programa;
 
 import java.util.ArrayList;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import oferta.Atraccion;
+import promociones.PromoAbs;
+import promociones.PromoAxB;
+import promociones.PromoDesc;
 
 public class PromocionTest {
 
@@ -24,70 +30,65 @@ public class PromocionTest {
 	@Test
 	public void PromoAbsoluta() {
 		/*
-		 * Se testea que en la promocion con precio absoluto, el usuario pague el precio
-		 * adecuado
+		 * Se testea que en la promocion con precio absoluto se cree correctamente
 		 */
-		Usuario usuario = new Usuario("jorge", 100, 6, "Aventura");
-		double dineroRestanteEsperado = 40;
 
-		ArrayList<Atraccion> atracciones = new ArrayList<Atraccion>();
-		atracciones.add(this.plantaEnergia);
-		atracciones.add(this.taberna);
-		PromoAbs prom = new PromoAbs(atracciones, 60);
+		ArrayList<Atraccion> atraccionesEsperadas = new ArrayList<Atraccion>();
+		atraccionesEsperadas.add(this.plantaEnergia);
+		atraccionesEsperadas.add(this.taberna);
+		PromoAbs prom = new PromoAbs(atraccionesEsperadas, 60);
 
-		usuario.comprar(prom);
+		double precioReal = prom.getPrecio();
+		double precioEsperado = 60;
 
-		double dineroRestanteReal = usuario.getDinero();
+		ArrayList<Atraccion> atraccionesReales = new ArrayList<Atraccion>();
+		atraccionesReales.addAll(prom.getAtracciones());
 
-		Assert.assertEquals(dineroRestanteEsperado, dineroRestanteReal, 0.01);
+		Assert.assertEquals(precioEsperado, precioReal, 0.01);
+		Assert.assertEquals(atraccionesEsperadas, atraccionesReales);
 
 	}
 
 	@Test
 	public void PromoAxB() {
-		
+
 		/*
-		 * Se testea que en la promocion del tipo A x B, el precio sea el correcto.
-		 * Y que el usuario pague el precio correspondiente
+		 * Se testea que en la promocion del tipo A x B se cree correctamente
 		 */
+		ArrayList<Atraccion> atraccionesEsperadas = new ArrayList<Atraccion>();
+		atraccionesEsperadas.add(this.plantaEnergia);
+		atraccionesEsperadas.add(this.taberna);
+		PromoAxB prom = new PromoAxB(atraccionesEsperadas, 1);
 
-		Usuario usuario = new Usuario("jorge", 100, 6, "Aventura");
-		double dineroRestanteEsperado = 14.2;
+		double precioReal = prom.getPrecio();
+		double precioEsperado = 85.8;
 
-		ArrayList<Atraccion> atracciones = new ArrayList<Atraccion>();
-		atracciones.add(this.plantaEnergia);
-		atracciones.add(this.taberna);
-		PromoAxB prom = new PromoAxB(atracciones, 1);
+		ArrayList<Atraccion> atraccionesReales = new ArrayList<Atraccion>();
+		atraccionesReales.addAll(prom.getAtracciones());
 
-		usuario.comprar(prom);
-
-		double dineroRestanteReal = usuario.getDinero();
-
-		Assert.assertEquals(dineroRestanteEsperado, dineroRestanteReal, 0.01);
-
+		Assert.assertEquals(precioEsperado, precioReal, 0.01);
+		Assert.assertEquals(atraccionesEsperadas, atraccionesReales);
 	}
 
 	@Test
 	public void PromoDesc() {
-		
+
 		/*
-		 * Se testea que en la promocion del tipo A x B, el precio sea el correcto.
-		 * Y que el usuario pague el precio correspondiente
+		 * Se testea que en la promocion del tipo con descuento se cree correctamente
 		 */
-		
-		Usuario usuario = new Usuario("jorge", 100, 6, "Aventura");
-		double dineroRestanteEsperado = 14.2;
+		ArrayList<Atraccion> atraccionesEsperadas = new ArrayList<Atraccion>();
+		atraccionesEsperadas.add(this.plantaEnergia);
+		atraccionesEsperadas.add(this.taberna);
+		PromoDesc prom = new PromoDesc(atraccionesEsperadas, 10);
 
-		ArrayList<Atraccion> atracciones = new ArrayList<Atraccion>();
-		atracciones.add(this.plantaEnergia);
-		atracciones.add(this.taberna);
-		PromoAxB prom = new PromoAxB(atracciones, 1);
+		double precioReal = prom.getPrecio();
+		double precioEsperado = 117.72;
 
-		usuario.comprar(prom);
+		ArrayList<Atraccion> atraccionesReales = new ArrayList<Atraccion>();
+		atraccionesReales.addAll(prom.getAtracciones());
 
-		double dineroRestanteReal = usuario.getDinero();
-
-		Assert.assertEquals(dineroRestanteEsperado, dineroRestanteReal, 0.01);
+		Assert.assertEquals(precioEsperado, precioReal, 0.01);
+		Assert.assertEquals(atraccionesEsperadas, atraccionesReales);
 	}
 
 }

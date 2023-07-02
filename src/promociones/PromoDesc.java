@@ -1,6 +1,8 @@
-package programa;
+package promociones;
 
 import java.util.ArrayList;
+
+import oferta.Atraccion;
 
 public class PromoDesc extends Promocion {
 	private double descuento;
@@ -17,6 +19,7 @@ public class PromoDesc extends Promocion {
 
 	@Override
 	public String toString() {
-		return super.toString() + "\nPrecio con un " + this.descuento + "% de descuento= $" + this.getPrecio() + "\n";
+		return super.toString() + "\nPrecio con un " + this.descuento + "% de descuento= $"
+				+ String.format("%.2f", this.getPrecio()) + "\n";
 	}
 }

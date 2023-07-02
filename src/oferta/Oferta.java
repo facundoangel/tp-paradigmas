@@ -1,4 +1,4 @@
-package programa;
+package oferta;
 
 import java.util.ArrayList;
 import java.util.Set;
@@ -9,12 +9,11 @@ public abstract class Oferta {
 	protected double tiempo;
 	protected boolean disponible;
 //	La variable disponible es para marcar que la oferta no tiene cupos o el usuario ya lo compró en una promo
-	public enum tipoAtraccion {
-		Aventura, Paisaje, Degustacion
-	}
-	protected tipoAtraccion tipo;
+
+	protected TipoAtraccion tipo;
 
 	public abstract void vender();
+
 	public abstract boolean estaDisponible();
 
 	public double getPrecio() {
@@ -25,37 +24,38 @@ public abstract class Oferta {
 		return this.tiempo;
 	}
 
-	public tipoAtraccion getTipo() {
+	public TipoAtraccion getTipo() {
 		return this.tipo;
 	}
-	
+
 	public static void resetDisponibilidad(ArrayList<Oferta> ofertas) {
-		for(Oferta of: ofertas) {
+		for (Oferta of : ofertas) {
 			of.resetearDisponibilidad();
 		}
 	}
-	
+
 	public abstract void resetearDisponibilidad();
+
 	public abstract boolean esPromo();
-	
+
 	public void setDisponibilidad(boolean disp) {
 		this.disponible = disp;
 	}
-	
+
 	public static boolean hayOfertasDisp(ArrayList<Oferta> ofertas) {
-		for(Oferta of: ofertas) {
-			if(of.disponible)
+		for (Oferta of : ofertas) {
+			if (of.disponible)
 				return true;
 		}
 		return false;
 	}
-	
+
 //	Ordena las ofertas por preferencias
 	static public void crearArraysPreferencias(ArrayList<Oferta> general, ArrayList<Oferta> prefAventura,
 			ArrayList<Oferta> prefDegustacion, ArrayList<Oferta> prefPaisaje) {
-		Set<Oferta> aventura = new TreeSet<Oferta>(new ComparatorXPref(Oferta.tipoAtraccion.Aventura));
-		Set<Oferta> degustacion = new TreeSet<Oferta>(new ComparatorXPref(Oferta.tipoAtraccion.Degustacion));
-		Set<Oferta> paisaje = new TreeSet<Oferta>(new ComparatorXPref(Oferta.tipoAtraccion.Paisaje));
+		Set<Oferta> aventura = new TreeSet<Oferta>(new ComparatorXPref(TipoAtraccion.Aventura));
+		Set<Oferta> degustacion = new TreeSet<Oferta>(new ComparatorXPref(TipoAtraccion.Degustacion));
+		Set<Oferta> paisaje = new TreeSet<Oferta>(new ComparatorXPref(TipoAtraccion.Paisaje));
 
 		for (Oferta atr : general) {
 			aventura.add(atr);

@@ -9,6 +9,7 @@ public class Ofertador {
 	private Usuario cliente;
 
 	public void setCliente(Usuario cliente) {
+
 		this.cliente = cliente;
 	}
 

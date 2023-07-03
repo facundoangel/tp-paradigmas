@@ -1,10 +1,4 @@
 Marge
-[Promocion]
-Atracciones incluidas: Centro Comercial, Krusty Burger
-Duracion=2.0hs
-Precio Orginal= $140.0
-Llevatelo a = $220.0
-
 Promocion
 Comprando: Kwik-E-Mart
 Te llevas gratis: Taberna de Moe
@@ -12,7 +6,13 @@ Duracion=4.0hs
 Precio Orginal= $185.8
 Precio Promo: $140.0
 
-[Atraccion]: Planta de Energia Nuclear
+Promocion
+Atracciones incluidas: Centro Comercial, Krusty Burger
+Duracion=2.0hs
+Precio Orginal= $140.0
+Llevatelo a = $220.0
+
+Atraccion: Planta de Energia Nuclear
 Precio= $85.8
 Duracion=2.0hs
 

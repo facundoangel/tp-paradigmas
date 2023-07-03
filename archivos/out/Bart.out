@@ -1,13 +1,13 @@
 Bart
-Promocion
-Atracciones incluidas: Ayuntamiento Springfield, Ciudad Capital
+[Promocion]
+Atracciones incluidas: Planta de Energia Nuclear, Casa de los Simpsons
 Duracion=5.0hs
-Precio Orginal= $290.0
-Llevatelo a = $130.0
+Precio Orginal= $195.8
+Precio con un 20.0% de descuento= $156,64
 
-Atraccion: Escuela Primaria
+[Atraccion]: Escuela Primaria
 Precio= $60.0
 Duracion=1.0hs
 
-Total a pagar: $190,00 Tiempo requerido: 6,00hs
+Total a pagar: $216,64 Tiempo requerido: 6,00hs
 

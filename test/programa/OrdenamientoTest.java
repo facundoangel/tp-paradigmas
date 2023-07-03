@@ -148,8 +148,8 @@ public class OrdenamientoTest {
 		ArrayList<Oferta> arrayEsperado = new ArrayList<Oferta>();
 		arrayEsperado.add(this.promoDegust);
 		arrayEsperado.add(this.krustyBurguer);
-		arrayEsperado.add(this.promoPaisaje);
 		arrayEsperado.add(this.promoAventura);
+		arrayEsperado.add(this.promoPaisaje);
 		arrayEsperado.add(this.plantaEnergia);
 		arrayEsperado.add(this.shelbyvile);
 		arrayEsperado.add(this.casaArbol);

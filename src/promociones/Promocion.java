@@ -71,7 +71,7 @@ public abstract class Promocion extends Oferta {
 
 	@Override
 	public String toString() {
-		String texto = "Promocion\nAtracciones incluidas: ";
+		String texto = "[Promocion]\nAtracciones incluidas: ";
 		for (int i = 0; i < this.atracciones.size() - 1; i++) {
 			texto += this.atracciones.get(i).getNombre() + ", ";
 		}

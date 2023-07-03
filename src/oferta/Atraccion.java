@@ -58,10 +58,39 @@ public class Atraccion extends Oferta {
 
 	@Override
 	public String toString() {
-		return "[Atraccion]: " + nombre + "\nPrecio= $" + precio + "\nDuracion=" + tiempo + "hs\n";
+		return "Atraccion: " + nombre + "\nPrecio= $" + precio + "\nDuracion=" + tiempo + "hs\n";
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + cupo;
+		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+		return result;
+	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (getClass() != obj.getClass())
+			return false;
+		Atraccion other = (Atraccion) obj;
+		if (nombre.equals(other.nombre))
+			return true;
+		if (cupo != other.cupo)
+			return false;
+		if (nombre == null) {
+			if (other.nombre != null)
+				return false;
+		} else if (!nombre.equals(other.nombre))
+			return false;
+		if (!super.equals(obj))
+			return false;
+
+		return true;
+	}
 
 	static public ArrayList<Atraccion> leerAtracciones() {
 

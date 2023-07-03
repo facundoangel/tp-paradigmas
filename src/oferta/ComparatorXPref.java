@@ -11,9 +11,9 @@ public class ComparatorXPref implements Comparator<Oferta> {
 	}
 
 	public int compare(Oferta of1, Oferta of2) {
-		if (of1.getTipo() == this.tipo && of2.getTipo() != this.tipo)
+		if (of1.tipo == this.tipo && of2.tipo != this.tipo)
 			return -1;
-		if (of2.getTipo() == this.tipo && of1.getTipo() != this.tipo)
+		if (of2.tipo == this.tipo && of1.tipo != this.tipo)
 			return 1;
 
 		if (of1.esPromo() && !of2.esPromo())
@@ -21,11 +21,11 @@ public class ComparatorXPref implements Comparator<Oferta> {
 		else if (!of1.esPromo() && of2.esPromo())
 			return 1;
 
-		if (of1.getPrecio() != of2.getPrecio())
-			return Double.compare(of2.getPrecio(), of1.getPrecio());
+		if (of1.precio != of2.precio)
+			return Double.compare(of2.precio, of1.precio);
 
-		if (of1.getTiempo() != of2.getTiempo())
-			return Double.compare(of2.getTiempo(), of1.getTiempo());
+		if (of1.tiempo != of2.tiempo)
+			return Double.compare(of2.tiempo, of1.tiempo);
 
 //	si llega hasta aca, son dos ofertas con distinto tipo al de la preferencia, con igual precio y tiempo 
 //	asi que nos da igual cual vaya antes o despues
